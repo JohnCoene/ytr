@@ -1,0 +1,3 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^ytr_token\.rds$
