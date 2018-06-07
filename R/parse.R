@@ -12,8 +12,11 @@ ytr_parse <- function(ytr){
     purrr::map("name") %>%
     unlist()
 
-  data <- as.data.frame(ytr$rows)
-  names(data) <- columns
+  data <- lapply(ytr$rows, as.data.frame)
+
+  nm <- function(x){names(x) <- columns;return(x)}
+  data <- lapply(data, nm) %>%
+    purrr::map_df(dplyr::bind_rows)
 
   tibble::as.tibble(data)
 }
