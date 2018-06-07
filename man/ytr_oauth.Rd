@@ -11,7 +11,7 @@ ytr_oauth(client.id, client.secret, scope = "yt-analytics.readonly")
 
 \item{client.secret}{Your \code{client.secret}. See details below.}
 
-\item{scope}{Scope of token, defaults to \code{NULL}. See details below.}
+\item{scope}{Scope of token. See details below.}
 }
 \description{
 Authenticate
@@ -30,4 +30,11 @@ Valid scopes:
 
 See \href{https://developers.google.com/youtube/reporting/guides/authorization/client-side-web-apps}{official documentation}
 for more information on the scopes.
+}
+\examples{
+\dontrun{
+token <- ytr_oauth("something.apps.googleusercontent.com",
+  "xxXx0X0x0X0xXX0")
+}
+
 }
