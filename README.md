@@ -5,8 +5,7 @@
 ## Install
 
 ```r
-devtools::install_git("http://git.weforum.local/JCOE/ytr",
-    credentials = git2r::cred_user_pass("username", "password"))
+devtools::install_github("JohnCoene/ytr", auth_token = "xXXXxxXXXxx")
 ```
 
 ## Functions
