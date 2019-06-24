@@ -3,12 +3,13 @@
 
 # ytr
 
-YouTube Analytics API.
+R wrapper to the YouTube Analytics API.
 
 ## Install
 
 ``` r
-devtools::install_github("JohnCoene/ytr", auth_token = "xXXXxxXXXxx")
+# install.packages("remotes")
+remotes::install_github("JohnCoene/ytr")
 ```
 
 ## Functions
