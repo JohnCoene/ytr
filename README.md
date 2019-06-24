@@ -65,6 +65,7 @@ token %>%
 #>  9 1O3ghiyirvU                   21104  1529    21                16
 #> 10 -OiaE6l8ysg                    6944  1508    23                15
 
+# Filter specific videos (by ID)
 token %>% 
   ytr_reports(
       start = Sys.Date() - 7,

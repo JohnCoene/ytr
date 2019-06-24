@@ -64,6 +64,7 @@ token %>%
     ) %>% 
   ytr_parse()
 
+# Filter specific videos (by ID)
 token %>% 
   ytr_reports(
       start = Sys.Date() - 7,
