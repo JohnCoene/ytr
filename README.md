@@ -32,7 +32,13 @@ token <- ytr_oauth("something.apps.googleusercontent.com",
 
 ## Examples
 
+It’s not the most approachable API, even though it consists of just one
+endpoint, a good place to start is the [“sample requests”
+page](https://developers.google.com/youtube/analytics/sample-requests).
+
 ``` r
+library(ytr)
+
 # Total views and likes in the last 3 days
 token %>% 
   ytr_reports() %>% 
