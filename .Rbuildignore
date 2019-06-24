@@ -3,3 +3,5 @@
 ^ytr_token\.rds$
 tests.R
 ytr_token.rds
+token.rds
+^README\.Rmd$

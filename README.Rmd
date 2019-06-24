@@ -1,0 +1,77 @@
+---
+output:
+  github_document:
+    html_preview: false
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ytr
+
+YouTube Analytics API.
+
+## Install
+
+```r
+devtools::install_github("JohnCoene/ytr", auth_token = "xXXXxxXXXxx")
+```
+
+## Functions
+
+* `ytr_oauth` - Authenticate
+* `ytr_reports` - Get data
+* `ytr_parse` - Parse results
+
+## Setup
+
+Create a free application in the [Google Console](https://console.cloud.google.com/) to obtain your client and secret.
+
+```r
+# OAuth
+token <- ytr_oauth("something.apps.googleusercontent.com",
+    "xxXx0X0x0X0xXX0")
+```
+
+```{r, echo=FALSE}
+token <- readRDS("token.rds")
+```
+
+## Examples
+
+```{r}
+# Total views and likes in the last 3 days
+token %>% 
+  ytr_reports() %>% 
+  ytr_parse()
+
+# Top 10 videos by subs gained in the last 7 days
+token %>% 
+  ytr_reports(
+      start = Sys.Date() - 7,
+      metrics = c("estimatedMinutesWatched","views","likes","subscribersGained"), 
+      dimensions = "video", 
+      maxResults = 10, 
+      sort = "-subscribersGained"
+    ) %>% 
+  ytr_parse()
+
+token %>% 
+  ytr_reports(
+      start = Sys.Date() - 7,
+      metrics = c("estimatedMinutesWatched","views","likes","subscribersGained"), 
+      dimensions = "video", 
+      maxResults = 10, 
+      sort = "-subscribersGained",
+      filters = "video==x2l7KscqRro,cFhONVldyE0"
+    ) %>% 
+  ytr_parse()
+```
