@@ -38,7 +38,7 @@ ytr_reports <- function(token, start = Sys.Date() - 3, end = Sys.Date(),
 
   response <- httr::GET(uri, httr::config(token = token))
 
-  httr::stop_for_status(response)
+  httr::stop_for_status(response, httr::content(response)$error$message)
 
   content <- httr::content(response)
 
