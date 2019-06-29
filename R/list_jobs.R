@@ -36,6 +36,7 @@ ytr_reports <- function(token, start = Sys.Date() - 3, end = Sys.Date(),
     ids = ids,
     startDate = as.character(start),
     endDate = as.character(end),
+    dimensions = dimensions,
     ...
   )
 
