@@ -4,6 +4,7 @@
 #' @param start,end Start and end date of class \code{Date}.
 #' @param ids Ids of chennels or users data to return.
 #' @param metrics Metrics to return, see\href{https://developers.google.com/youtube/analytics/metrics}{docs}.
+#' @param dimensions A \code{list} or \code{vector} of YouTube Analytics dimensions, such as \code{video} or \code{ageGroup}, see\href{https://developers.google.com/youtube/reporting/}{docs}.
 #' @param ... Any other parameter to pass to query.
 #'
 #' @examples
@@ -22,8 +23,12 @@
 #'
 #' @export
 ytr_reports <- function(token, start = Sys.Date() - 3, end = Sys.Date(),
-                        ids = "channel==MINE", metrics = c("views","likes"), ...){
+                        ids = "channel==MINE", metrics = c("views","likes"), 
+                        dimensions = NULL, ...){
   uri <- "https://youtubeanalytics.googleapis.com/v2/reports"
+
+  if(!is.null(dimensions))
+    dimensions <- paste0(dimensions, collapse = ",")
 
   uri <- httr::parse_url(uri)
   uri$query <- list(

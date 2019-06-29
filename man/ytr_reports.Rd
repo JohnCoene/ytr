@@ -5,7 +5,8 @@
 \title{List jobs}
 \usage{
 ytr_reports(token, start = Sys.Date() - 3, end = Sys.Date(),
-  ids = "channel==MINE", metrics = c("views", "likes"), ...)
+  ids = "channel==MINE", metrics = c("views", "likes"),
+  dimensions = NULL, ...)
 }
 \arguments{
 \item{token}{your token as returned by \code{\link{ytr_oauth}}.}
@@ -15,6 +16,8 @@ ytr_reports(token, start = Sys.Date() - 3, end = Sys.Date(),
 \item{ids}{Ids of chennels or users data to return.}
 
 \item{metrics}{Metrics to return, see\href{https://developers.google.com/youtube/analytics/metrics}{docs}.}
+
+\item{dimensions}{A \code{list} or \code{vector} of YouTube Analytics dimensions, such as \code{video} or \code{ageGroup}, see\href{https://developers.google.com/youtube/reporting/}{docs}.}
 
 \item{...}{Any other parameter to pass to query.}
 }
